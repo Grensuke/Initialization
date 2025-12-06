@@ -1,0 +1,765 @@
+/* Dashboard Container */
+.dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 100%);
+  color: #e0e0e0;
+  padding: 0;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  border-bottom: 2px solid #ff0000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.2);
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dashboard-title {
+  font-family: 'Metal Mania', cursive;
+  font-size: 2.5rem;
+  color: #ff0000;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  letter-spacing: 2px;
+}
+
+.dashboard-subtitle {
+  font-family: 'Overlock SC', cursive;
+  font-size: 0.9rem;
+  color: #ff6b6b;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.user-info {
+  text-align: right;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.logout-btn {
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+  background: #ff0000;
+  color: #000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-btn {
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: 2px solid #ff6b6b;
+  color: #ff6b6b;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.nav-btn:hover {
+  background: #ff6b6b;
+  color: #000;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+}
+
+/* Profile avatar nav */
+.profile-nav {
+  position: relative;
+}
+
+.profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #330000, #660000);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.profile-avatar:hover {
+  box-shadow: 0 4px 18px rgba(255,0,0,0.3);
+}
+
+.profile-menu {
+  position: absolute;
+  right: 0;
+  top: 56px;
+  width: 260px;
+  background: rgba(10,10,10,0.95);
+  border: 1px solid rgba(255,0,0,0.12);
+  border-radius: 8px;
+  padding: 0.6rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 200;
+}
+
+.profile-menu-header {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.6rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.menu-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ff0000;
+  color: #000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.menu-user-email {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.menu-user-action {
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.profile-menu-list {
+  list-style: none;
+  padding: 0.4rem 0;
+  margin: 0;
+}
+
+.profile-menu-item {
+  padding: 0.6rem 0.9rem;
+  color: #e0e0e0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.profile-menu-item:hover {
+  background: rgba(255,0,0,0.06);
+}
+
+.profile-menu-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.04);
+  margin: 0.4rem 0;
+}
+
+.profile-menu-item.logout {
+  color: #ff6b6b;
+  font-weight: 700;
+}
+
+/* Main Content */
+.dashboard-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Profile Overview Section */
+.profile-overview {
+  background: rgba(30, 30, 30, 0.5);
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.profile-overview:hover {
+  border-color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.overview-header h2 {
+  font-size: 1.8rem;
+  color: #ff0000;
+  margin: 0;
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 1px;
+}
+
+.link-account-btn {
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(135deg, #ff0000, #ff3333);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.link-account-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.05));
+  border: 2px solid #ff0000;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.1);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4), inset 0 0 20px rgba(255, 0, 0, 0.1);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  color: #ff0000;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  letter-spacing: 0.5px;
+}
+
+/* Linked Accounts Section */
+.linked-accounts {
+  background: rgba(30, 30, 30, 0.5);
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.linked-accounts h2 {
+  font-size: 1.8rem;
+  color: #ff0000;
+  margin: 0 0 2rem 0;
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 1px;
+}
+
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.account-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #444;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-card:hover {
+  border-color: #ff0000;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+}
+
+.account-header {
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0.8);
+  border-left: 5px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platform-name {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+.rank-badge {
+  background: linear-gradient(135deg, #ff0000, #ff3333);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.account-body {
+  padding: 1.2rem;
+  flex-grow: 1;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.account-row:last-child {
+  margin-bottom: 0;
+}
+
+.account-row .label {
+  color: #888;
+  font-weight: 500;
+}
+
+.account-row .value {
+  color: #e0e0e0;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.account-row .rating {
+  color: #ff0000;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.account-row .timestamp {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.account-footer {
+  padding: 1rem;
+  border-top: 1px solid #333;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.view-profile-btn {
+  width: 100%;
+  padding: 0.6rem;
+  background: transparent;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.view-profile-btn:hover {
+  background: #ff0000;
+  color: #000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+/* Difficulty Distribution Section */
+.difficulty-section {
+  background: rgba(30, 30, 30, 0.5);
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.difficulty-section h2 {
+  font-size: 1.8rem;
+  color: #ff0000;
+  margin: 0 0 2rem 0;
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 1px;
+}
+
+.difficulty-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.difficulty-bar {
+  display: grid;
+  grid-template-columns: 80px 1fr 60px;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.bar-label {
+  font-weight: bold;
+  color: #e0e0e0;
+}
+
+.bar-container {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  height: 30px;
+  overflow: hidden;
+  border: 1px solid #444;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.bar-fill.easy {
+  background: linear-gradient(90deg, #4ade80, #22c55e);
+}
+
+.bar-fill.medium {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+.bar-fill.hard {
+  background: linear-gradient(90deg, #ff6b6b, #ff0000);
+}
+
+.bar-value {
+  text-align: right;
+  font-weight: bold;
+  color: #ff0000;
+  font-family: 'Courier New', monospace;
+}
+
+/* Topics Section */
+.topics-section {
+  background: rgba(30, 30, 30, 0.5);
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.topics-section h2 {
+  font-size: 1.8rem;
+  color: #ff0000;
+  margin: 0 0 2rem 0;
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 1px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.topic-tag {
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px solid #ff0000;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.topic-tag:hover {
+  transform: scale(1.05);
+  background: rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.topic-name {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.topic-count {
+  font-size: 1.5rem;
+  color: #ff0000;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Activity Feed Section */
+.activity-feed {
+  background: rgba(30, 30, 30, 0.5);
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.activity-feed h2 {
+  font-size: 1.8rem;
+  color: #ff0000;
+  margin: 0 0 2rem 0;
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 1px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.activity-item {
+  display: grid;
+  grid-template-columns: 20px 1fr 80px;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-left: 3px solid;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.activity-item.accepted {
+  border-left-color: #4ade80;
+}
+
+.activity-item.attempted {
+  border-left-color: #fbbf24;
+}
+
+.activity-item:hover {
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.activity-indicator {
+  width: 12px;
+  height: 12px;
+  background: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.activity-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.platform-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.problem-name {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.activity-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.activity-meta .difficulty {
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.activity-meta .difficulty.easy {
+  background: rgba(74, 222, 128, 0.2);
+  color: #4ade80;
+}
+
+.activity-meta .difficulty.medium {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+
+.activity-meta .difficulty.hard {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+}
+
+.activity-meta .timestamp {
+  color: #888;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+  text-align: right;
+  font-weight: bold;
+  width: 80px;
+}
+
+.status-icon.accepted {
+  color: #4ade80;
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+
+.status-icon.attempted {
+  color: #fbbf24;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+  }
+
+  .header-right {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .dashboard-content {
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .accounts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .link-account-btn {
+    width: 100%;
+  }
+
+  .difficulty-bar {
+    grid-template-columns: 70px 1fr 50px;
+    gap: 1rem;
+  }
+
+  .topics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .activity-item {
+    grid-template-columns: 15px 1fr;
+    gap: 1rem;
+  }
+
+  .status-icon {
+    grid-column: 2;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .difficulty-bar {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .bar-label,
+  .bar-value {
+    text-align: left;
+  }
+
+  .topics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

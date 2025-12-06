@@ -1,0 +1,230 @@
+.homepage {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-image: url('/homepage-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.homepage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-family: 'Metal Mania', cursive;
+  font-size: 3.5rem;
+  color: #ff0000;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.header-nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: text-shadow 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+  color: #ff4444;
+}
+
+/* Red Separator Line - Oval Shape */
+.separator {
+  width: 100vw;
+  height: 2px;
+  position: absolute;
+  top: 7.5rem;
+  left: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  overflow: visible;
+}
+.separator::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  background: radial-gradient(ellipse 120vw 2px at 50% 50%, 
+    #ff0000 0%, 
+    #ff0000 15%, 
+    rgba(255, 0, 0, 0.98) 20%,
+    rgba(255, 0, 0, 0.95) 25%,
+    rgba(255, 0, 0, 0.9) 30%,
+    rgba(255, 0, 0, 0.8) 35%,
+    rgba(255, 0, 0, 0.65) 40%,
+    rgba(255, 0, 0, 0.5) 45%,
+    rgba(255, 0, 0, 0.35) 50%,
+    rgba(255, 0, 0, 0.2) 55%,
+    rgba(255, 0, 0, 0.1) 60%,
+    rgba(255, 0, 0, 0.05) 65%,
+    transparent 75%);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+/* Main Content */
+.homepage-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem 3rem 4rem;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+/* Tagline */
+.tagline {
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.6rem;
+  color: #f2dede;
+  letter-spacing: 0.12em;
+  position: fixed;
+  top: 8.25rem;
+  left: 3.5rem;
+  z-index: 10;
+  display: inline-block;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.45), 0 1px 0 rgba(0,0,0,0.6);
+}
+
+/* CTA Section */
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 100%;
+}
+
+.cta-button {
+  font-family: 'Metal Mania', cursive;
+  font-size: 2rem;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+  padding: 1.1rem 3rem;
+  border-radius: 12px;
+  text-decoration: none;
+  letter-spacing: 0.18em;
+  border: 2px solid rgba(255, 60, 60, 0.15);
+  transition: all 0.28s cubic-bezier(.2,.9,.3,1);
+  text-shadow: 0 0 10px rgba(255,255,255,0.25);
+  box-shadow: 0 6px 30px rgba(180,0,0,0.12) inset, 0 8px 30px rgba(180,0,0,0.06);
+  display: inline-block;
+  position: relative;
+}
+
+.cta-button:hover {
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(10,0,0,0.6));
+  border-color: rgba(255, 40, 40, 0.9);
+  text-shadow: 0 0 24px rgba(255, 80, 80, 0.95);
+  box-shadow: 0 0 32px rgba(255, 40, 40, 0.25), 0 10px 30px rgba(0,0,0,0.6) inset;
+  color: #ffecec;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.cta-button::after {
+  /* subtle animated red glow */
+  content: '';
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  top: -6px;
+  bottom: -6px;
+  border-radius: 14px;
+  background: radial-gradient(ellipse at center, rgba(255,0,0,0.08), transparent 40%);
+  z-index: -1;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 6px rgba(255,0,0,0.08); }
+  50% { box-shadow: 0 0 18px rgba(255,0,0,0.18); }
+  100% { box-shadow: 0 0 6px rgba(255,0,0,0.08); }
+}
+
+.cta-button.pulse {
+  animation: pulseGlow 2.6s infinite linear;
+}
+
+.cta-subtext {
+  font-family: 'Overlock SC', cursive;
+  font-size: 1rem;
+  color: rgba(255,230,230,0.9);
+  margin-top: 0.9rem;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.18);
+}
+
+/* Bottom Text */
+.bottom-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.bottom-line-1,
+.bottom-line-2 {
+  font-family: 'Overlock SC', cursive;
+  font-size: 1.9rem;
+  color: #efecec;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 0 8px rgba(255,0,0,0.06);
+}
+
+.bottom-line-2 {
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1920px) {
+  .homepage {
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
